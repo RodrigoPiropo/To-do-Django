@@ -1,0 +1,9 @@
+<h1>To-do app</h1>
+<form method="post" action="/">
+    {% csrf_token %}
+    {{ form.title }}
+    <input type="submit" value="Submit" name="Create Task">
+</form>
+{% for task in tasks %}
+    <p>{{ task }}</p>
+{% endfor %}
