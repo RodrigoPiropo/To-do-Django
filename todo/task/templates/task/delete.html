@@ -1,8 +1,47 @@
-<p>Are you sure you are going to delete this item?</p>
-<p>{{ item }}</p>
-<a href="{% url 'task:list' %}">Cancel</a>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-<form method="post" action="">
-    {% csrf_token %}
-    <input type="submit" value="Confirm" name="Delete Task">
-</form>
+<style>
+
+    body{
+		background-color: #09b300;
+	}
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+	.item-row{
+		background-color: #53a379;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+	.btn-danger{
+		background-color: #ffae19;
+		border-color: #e59400;
+	}
+
+</style>
+<body>
+    <div class="center-column">
+        <h1 style="color: #ff3d3d;">Você tem certeza que vai deletar este item?</h1>
+        <div class="item-row">
+            <p>{{ item }}</p>
+        </div>
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="submit" value="Confirmar" name="Delete Task" class="btn btn-sm btn-danger">
+            <a href="{% url 'task:list' %}" class="btn btn-info">Cancelar</a>
+        </form>
+    </div>
+</body>
