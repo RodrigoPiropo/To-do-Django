@@ -53,7 +53,7 @@
 
 	<form method="POST" action="/">
 		{% csrf_token %}
-		{{form.title}}
+		{{ form.title }}
 		<input class="btn btn-info" type="submit" value="Adicione" name="Create Task">
 	</form>
 
